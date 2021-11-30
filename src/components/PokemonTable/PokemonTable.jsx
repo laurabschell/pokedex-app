@@ -1,16 +1,17 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from '@mui/material'
 import React from 'react'
+import PokemonTableRow from './PokemonTableRow/PokemonTableRow'
 
 const rows = [
-    {"name":"normal","url":"https://pokeapi.co/api/v2/type/1/"},
-    {"name":"fighting","url":"https://pokeapi.co/api/v2/type/2/"},
-    {"name":"flying","url":"https://pokeapi.co/api/v2/type/3/"},
-    {"name":"poison","url":"https://pokeapi.co/api/v2/type/4/"},
-    {"name":"ground","url":"https://pokeapi.co/api/v2/type/5/"},
-    {"name":"rock","url":"https://pokeapi.co/api/v2/type/6/"},
-    {"name":"bug","url":"https://pokeapi.co/api/v2/type/7/"},
-    {"name":"ghost","url":"https://pokeapi.co/api/v2/type/8/"},
-    {"name":"steel","url":"https://pokeapi.co/api/v2/type/9/"}
+    {"name":"normal","url":"https://pokeapi.co/api/v2/type/1/", details: [ {name: "lolo", number: 21, algoMas: "34 ms"}]},
+    {"name":"fighting","url":"https://pokeapi.co/api/v2/type/2/", details: [ {name: "lolo", number: 21, algoMas: "34 ms"}]},
+    {"name":"flying","url":"https://pokeapi.co/api/v2/type/3/", details: [ {name: "lolo", number: 21, algoMas: "34 ms"}]},
+    {"name":"poison","url":"https://pokeapi.co/api/v2/type/4/", details: [ {name: "lolo", number: 21, algoMas: "34 ms"}]},
+    {"name":"ground","url":"https://pokeapi.co/api/v2/type/5/", details: [ {name: "lolo", number: 21, algoMas: "34 ms"}]},
+    {"name":"rock","url":"https://pokeapi.co/api/v2/type/6/", details: [ {name: "lolo", number: 21, algoMas: "34 ms"}]},
+    {"name":"bug","url":"https://pokeapi.co/api/v2/type/7/", details: [ {name: "lolo", number: 21, algoMas: "34 ms"}]},
+    {"name":"ghost","url":"https://pokeapi.co/api/v2/type/8/", details: [ {name: "lolo", number: 21, algoMas: "34 ms"}]},
+    {"name":"steel","url":"https://pokeapi.co/api/v2/type/9/", details: [ {name: "lolo", number: 21, algoMas: "34 ms"}]}
 ]
 
 const PokemonTable = () => {
@@ -27,23 +28,19 @@ const PokemonTable = () => {
                 </Typography>
 
             </Toolbar>
-            <Table aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Type</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                {rows.map((row) => (
-                    <TableRow
-                    key={row.name}
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                    >
-                        <TableCell component="th" scope="row">{row.name}</TableCell>
-                    </TableRow>
-                ))}
-                </TableBody>
-            </Table>
+            <Table aria-label="collapsible table">
+            <TableHead>
+            <TableRow>
+                <TableCell />
+                <TableCell>Type</TableCell>
+            </TableRow>
+            </TableHead>
+            <TableBody>
+            {rows.map((row) => (
+                <PokemonTableRow key={row.name} row={row} />
+            ))}
+            </TableBody>
+        </Table>
         </TableContainer>
     )
 }

@@ -6,7 +6,7 @@ import './Navbar.css'
 const Navbar = () => {
     return (
         <Box>
-         <AppBar position="static">
+         <AppBar position="static" color="warning">
             <Toolbar>
                 <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
                 Pokedex App
